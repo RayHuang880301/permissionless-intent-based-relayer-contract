@@ -4,7 +4,11 @@
     "clean": "hardhat clean && rm -rf cache",
     "build": "hardhat compile && hardhat typechain",
     "deploy:ERC20Permit": "hardhat run scripts/deployERC20Permit.ts",
-    "deploy:permissionlessIntentBasedRelayer": "hardhat run scripts/deployPermissionlessIntentBasedRelayer.ts"
+    "deploy:permissionlessIntentBasedRelayer": "hardhat run scripts/deployPermissionlessIntentBasedRelayer.ts",
+    "deploy:goerli": "hardhat --network goerli deploy",
+    "deploy:gnosis": "hardhat --network gnosis deploy",
+    "deploy:polygon": "hardhat --network polygon deploy",
+    "verify:goerli": "hardhat --network goerli etherscan-verify"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
@@ -25,6 +29,7 @@
     "ethers": "^5.7.2",
     "hardhat": "^2.17.3",
     "hardhat-contract-sizer": "^2.8.0",
+    "hardhat-deploy": "^0.11.43",
     "hardhat-docgen": "^1.3.0",
     "hardhat-gas-reporter": "^1.0.9",
     "hardhat-spdx-license-identifier": "^2.0.3",

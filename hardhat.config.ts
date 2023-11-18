@@ -10,6 +10,7 @@ import "hardhat-tracer";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 import "tsconfig-paths/register";
+import "hardhat-deploy";
 import { getString } from "./utils/helper";
 
 const config: HardhatUserConfig = {
@@ -49,12 +50,25 @@ const config: HardhatUserConfig = {
     goerli: {
       url: getString(process.env.GOERLI_RPC_URL),
       accounts: [getString(process.env.GOERLI_DEPLOYER_PRIVATE_KEY)],
+      verify: {
+        etherscan: {
+          apiKey: getString(process.env.GOERLI_ETHERSCAN_API_KEY),
+        },
+      },
+    },
+    gnosis: {
+      url: 'https://rpc.gnosischain.com',
+      accounts: [getString(process.env.GOERLI_DEPLOYER_PRIVATE_KEY)],
     },
   },
   etherscan: {
     apiKey: {
       goerli: getString(process.env.GOERLI_ETHERSCAN_API_KEY),
     },
+  },
+  // hardhat-deploy
+  namedAccounts: {
+    deployer: 0,
   },
 };
 
