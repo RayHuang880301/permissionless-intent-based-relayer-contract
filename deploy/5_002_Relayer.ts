@@ -16,17 +16,18 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
       // speed up deployment on local network (ganache, hardhat), no effect on live networks
       autoMine: true,
     });
-  }
 
-  const receipt = await execute(
-    'PermissionlessIntentBasedRelayerFactory',
-    {
-      from: deployer,
-    },
-    'deploy',
-    utils.defaultAbiCoder.encode(["bytes32"], ["0x0000000000000000000000000000000000000000000000000000000000000001"]),
-  );
-  console.log(receipt);
+    const receipt = await execute(
+      'PermissionlessIntentBasedRelayerFactory',
+      {
+        from: deployer,
+        maxFeePerGas: utils.parseUnits('0.01', 'gwei'),
+      },
+      'deploy',
+      utils.defaultAbiCoder.encode(["bytes32"], ["0x0000000000000000000000000000000000000000000000000000000000000001"]),
+    );
+    console.log(receipt);
+  }
 }
 
 export default func;

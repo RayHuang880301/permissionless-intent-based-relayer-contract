@@ -7,7 +7,14 @@
     "deploy:permissionlessIntentBasedRelayer": "hardhat run scripts/deployPermissionlessIntentBasedRelayer.ts",
     "deploy:goerli": "hardhat --network goerli deploy",
     "deploy:gnosis": "hardhat --network gnosis deploy",
-    "deploy:polygon": "hardhat --network polygon deploy",
+    "deploy:arbGoerli": "hardhat --network arbitrumGoerli deploy",
+    "deploy:mumbai": "hardhat --network mumbai deploy",
+    "deploy:scroll": "hardhat --network scroll deploy",
+    "deploy:polygon_zkevm": "hardhat --network polygon_zkevm deploy",
+    "deploy:linea_testnet": "hardhat --network linea_testnet deploy",
+    "deploy:chiliz_spicy_testnet": "hardhat --network chiliz_spicy_testnet deploy",
+    "deploy:mantle": "hardhat --network mantle deploy",
+    "deploy:base": "hardhat --network base deploy",
     "verify:goerli": "hardhat --network goerli etherscan-verify"
   },
   "devDependencies": {

@@ -13,24 +13,24 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
 	// token factory
 	if (!Factory) {
-		// await deploy('ERC20PermitFactory', {
-		// 	from: deployer,
-		// 	log: true,
-		// 	// speed up deployment on local network (ganache, hardhat), no effect on live networks
-		// 	autoMine: true,
-		// });
-	}
+		await deploy('ERC20PermitFactory', {
+			from: deployer,
+			log: true,
+			// speed up deployment on local network (ganache, hardhat), no effect on live networks
+			autoMine: true,
+		});
 
-	// erc20 permit
-  // const receipt = await execute(
-  //   'ERC20PermitFactory',
-  //   {
-  //     from: deployer,
-  //   },
-  //   'deploy',
-  //   utils.hexZeroPad(utils.hexlify(1), 32),
-  // );
-	// console.log(receipt);
+		// erc20 permit
+		const receipt = await execute(
+			'ERC20PermitFactory',
+			{
+				from: deployer,
+			},
+			'deploy',
+			utils.hexZeroPad(utils.hexlify(1), 32),
+		);
+		console.log(receipt);
+	}
 };
 
 export default func;
